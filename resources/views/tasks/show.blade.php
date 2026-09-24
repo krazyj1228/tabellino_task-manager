@@ -1,0 +1,4 @@
+@extends('layouts.app', ['title' => $task->title])
+@section('content')
+<main class="container"><div class="form-wrap"><div class="eyebrow">Task details</div><h1>{{ $task->title }}</h1><p class="subtitle">{{ $task->status }}@if($task->due_date) · Due {{ $task->due_date->format('M j, Y') }}@endif</p><div class="form-panel" style="margin-top:26px">{{ $task->description ?: 'No notes added for this task.' }}<div class="form-actions"><a class="button secondary" href="{{ route('tasks.index', [], false) }}">Back</a><a class="button" href="{{ route('tasks.edit', [$task], false) }}">Edit task</a></div></div></div></main>
+@endsection
